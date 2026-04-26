@@ -29,3 +29,19 @@ footer {
     padding: 10px;
     background: #1e293b;
 }
+
+
+.btn-whatsapp {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebe5d;
+}
