@@ -1,3 +1,8 @@
-document.getElementById("btnSaludo").addEventListener("click", function() {
-    document.getElementById("mensaje").textContent = "¡Hola! Tu página funciona correctamente 🚀";
-});
+const boton = document.getElementById("btnSaludo");
+
+if (boton) {
+    boton.addEventListener("click", () => {
+        document.getElementById("mensaje").textContent =
+            "¡Funciona correctamente!";
+    });
+}
