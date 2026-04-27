@@ -1,26 +1,585 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAVEUR — Fine Food Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<nav>
-    <a href="index.html">Inicio</a>
-    <a href="contacto.html">Contacto</a>
-</nav>
+  <!-- ===== CURSOR PERSONALIZADO ===== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
 
-<header>
-    <h1>Bienvenido</h1>
-</header>
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">SAVEUR</div>
+    <div class="nav-links">
+      <a href="#" class="nav-link active" data-view="home">Inicio</a>
+      <a href="#" class="nav-link" data-view="menu">Menú</a>
+      <a href="#" class="nav-link" data-view="chef">El Chef</a>
+      <a href="#" class="nav-link" data-view="reserva">Reservar</a>
+    </div>
+    <div class="nav-cta">
+      <span class="nav-dot"></span>
+      <span>Abierto hoy</span>
+    </div>
+  </nav>
 
-<main>
-    <button id="btnSaludo">Haz clic</button>
-    <p id="mensaje"></p>
-</main>
+  <!-- ===== VISTAS ===== -->
+  <main class="main-wrapper">
 
-<script src="script.js"></script>
+    <!-- ===== VISTA: HOME ===== -->
+    <section class="view active" id="view-home">
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Experiencia gastronómica</p>
+          <h1 class="hero-title">
+            El arte<br />
+            <em>de comer</em><br />
+            bien.
+          </h1>
+          <p class="hero-desc">Ingredientes seleccionados, técnica impecable y una atmósfera diseñada para el placer.</p>
+          <div class="hero-actions">
+            <button class="btn-primary" data-view="reserva">Reservar mesa</button>
+            <button class="btn-ghost" data-view="menu">Ver menú</button>
+          </div>
+        </div>
+        <div class="hero-image-block">
+          <div class="img-frame main-frame">
+            <div class="img-placeholder">
+              <span class="img-icon">🍽️</span>
+              <p>Plato estrella<br /><small>1200 × 900 px</small></p>
+            </div>
+          </div>
+          <div class="img-frame float-frame-1">
+            <div class="img-placeholder small">
+              <span class="img-icon">🥗</span>
+              <p>Entrante<br /><small>600 × 600 px</small></p>
+            </div>
+          </div>
+          <div class="img-frame float-frame-2">
+            <div class="img-placeholder small">
+              <span class="img-icon">🍷</span>
+              <p>Vinos<br /><small>600 × 600 px</small></p>
+            </div>
+          </div>
+          <div class="hero-badge">
+            <span class="badge-num">★ 4.9</span>
+            <span class="badge-sub">+1,200 reseñas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature strip -->
+      <div class="strip">
+        <div class="strip-item"><span>Km 0</span><span class="strip-sep">—</span><span>Ingredientes locales</span></div>
+        <div class="strip-item"><span>Chef★</span><span class="strip-sep">—</span><span>Reconocido internacionalmente</span></div>
+        <div class="strip-item"><span>Open</span><span class="strip-sep">—</span><span>Mar – Dom · 13:00 – 23:00</span></div>
+        <div class="strip-item"><span>Privado</span><span class="strip-sep">—</span><span>Salón de eventos disponible</span></div>
+      </div>
+
+      <!-- Categorías -->
+      <div class="section-label">Nuestras especialidades</div>
+      <div class="categories">
+        <div class="cat-card" data-view="menu">
+          <div class="cat-img">
+            <div class="img-placeholder cat-ph">
+              <span class="img-icon">🥩</span>
+              <p>Carnes<br /><small>800 × 600 px</small></p>
+            </div>
+          </div>
+          <div class="cat-info">
+            <h3>Carnes Premium</h3>
+            <p>Cortes de primera selección, madurados y preparados al punto exacto.</p>
+          </div>
+          <div class="cat-arrow">→</div>
+        </div>
+        <div class="cat-card" data-view="menu">
+          <div class="cat-img">
+            <div class="img-placeholder cat-ph">
+              <span class="img-icon">🦞</span>
+              <p>Mariscos<br /><small>800 × 600 px</small></p>
+            </div>
+          </div>
+          <div class="cat-info">
+            <h3>Del Mar</h3>
+            <p>Pescados y mariscos frescos traídos cada mañana de la costa.</p>
+          </div>
+          <div class="cat-arrow">→</div>
+        </div>
+        <div class="cat-card" data-view="menu">
+          <div class="cat-img">
+            <div class="img-placeholder cat-ph">
+              <span class="img-icon">🍮</span>
+              <p>Postres<br /><small>800 × 600 px</small></p>
+            </div>
+          </div>
+          <div class="cat-info">
+            <h3>Postres Artesanales</h3>
+            <p>Creaciones dulces que cierran la experiencia con un broche de oro.</p>
+          </div>
+          <div class="cat-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Gallery row -->
+      <div class="section-label">Galería</div>
+      <div class="gallery-strip">
+        <div class="gal-item tall">
+          <div class="img-placeholder">
+            <span class="img-icon">🌿</span>
+            <p>Ambiente<br /><small>600 × 900 px</small></p>
+          </div>
+        </div>
+        <div class="gal-col">
+          <div class="gal-item">
+            <div class="img-placeholder">
+              <span class="img-icon">🍣</span>
+              <p>Nigiris<br /><small>600 × 400 px</small></p>
+            </div>
+          </div>
+          <div class="gal-item">
+            <div class="img-placeholder">
+              <span class="img-icon">🥂</span>
+              <p>Celebración<br /><small>600 × 400 px</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="gal-item tall">
+          <div class="img-placeholder">
+            <span class="img-icon">🧑‍🍳</span>
+            <p>Cocina en vivo<br /><small>600 × 900 px</small></p>
+          </div>
+        </div>
+        <div class="gal-col">
+          <div class="gal-item">
+            <div class="img-placeholder">
+              <span class="img-icon">🍰</span>
+              <p>Pastelería<br /><small>600 × 400 px</small></p>
+            </div>
+          </div>
+          <div class="gal-item">
+            <div class="img-placeholder">
+              <span class="img-icon">🫒</span>
+              <p>Ingredientes<br /><small>600 × 400 px</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== VISTA: MENÚ ===== -->
+    <section class="view" id="view-menu">
+      <div class="view-header">
+        <p class="hero-eyebrow">Temporada actual</p>
+        <h2 class="view-title">Nuestra <em>Carta</em></h2>
+      </div>
+
+      <div class="menu-tabs">
+        <button class="tab-btn active" data-tab="entrantes">Entrantes</button>
+        <button class="tab-btn" data-tab="principales">Principales</button>
+        <button class="tab-btn" data-tab="postres">Postres</button>
+        <button class="tab-btn" data-tab="bebidas">Bebidas</button>
+      </div>
+
+      <!-- Entrantes -->
+      <div class="tab-content active" id="tab-entrantes">
+        <div class="menu-grid">
+          <div class="menu-item featured">
+            <div class="menu-img">
+              <div class="img-placeholder">
+                <span class="img-icon">🥗</span>
+                <p>Ensalada<br /><small>700 × 500 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <div class="menu-tag">Chef recomienda</div>
+              <h3>Burrata con tomate heirloom</h3>
+              <p>Burrata cremosa, tomates de herencia, albahaca fresca y aceite de oliva virgen extra.</p>
+              <div class="menu-footer"><span class="price">$185</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-img sm">
+              <div class="img-placeholder">
+                <span class="img-icon">🥟</span>
+                <p>Gyoza<br /><small>500 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <h3>Gyoza de cangrejo</h3>
+              <p>Masa artesanal, relleno de cangrejo azul, salsa ponzu.</p>
+              <div class="menu-footer"><span class="price">$165</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-img sm">
+              <div class="img-placeholder">
+                <span class="img-icon">🦑</span>
+                <p>Calamar<br /><small>500 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <h3>Calamar a la plancha</h3>
+              <p>Calamar fresco, mantequilla de hierbas, limón confitado.</p>
+              <div class="menu-footer"><span class="price">$145</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-img sm">
+              <div class="img-placeholder">
+                <span class="img-icon">🍄</span>
+                <p>Hongos<br /><small>500 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <h3>Tartar de hongos</h3>
+              <p>Mezcla de setas silvestres, yema curada, pan brioche tostado.</p>
+              <div class="menu-footer"><span class="price">$155</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Principales -->
+      <div class="tab-content" id="tab-principales">
+        <div class="menu-grid">
+          <div class="menu-item featured">
+            <div class="menu-img">
+              <div class="img-placeholder">
+                <span class="img-icon">🥩</span>
+                <p>Filete<br /><small>700 × 500 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <div class="menu-tag">Más pedido</div>
+              <h3>Filete Wellington</h3>
+              <p>Tenderloin envuelto en duxelles de champiñón y hojaldre dorado, acompañado de puré de trufa.</p>
+              <div class="menu-footer"><span class="price">$480</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-img sm">
+              <div class="img-placeholder">
+                <span class="img-icon">🐟</span>
+                <p>Salmón<br /><small>500 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <h3>Salmón miso</h3>
+              <p>Salmón glaseado con miso blanco, bok choy salteado, arroz de jazmín.</p>
+              <div class="menu-footer"><span class="price">$320</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-img sm">
+              <div class="img-placeholder">
+                <span class="img-icon">🦞</span>
+                <p>Langosta<br /><small>500 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <h3>Langosta thermidor</h3>
+              <p>Media langosta, salsa thermidor clásica, papas gratinadas.</p>
+              <div class="menu-footer"><span class="price">$550</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-img sm">
+              <div class="img-placeholder">
+                <span class="img-icon">🍝</span>
+                <p>Pasta<br /><small>500 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <h3>Tagliatelle al tartufo</h3>
+              <p>Pasta fresca al huevo, trufa negra rallada, parmigiano reggiano 36 meses.</p>
+              <div class="menu-footer"><span class="price">$285</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Postres -->
+      <div class="tab-content" id="tab-postres">
+        <div class="menu-grid">
+          <div class="menu-item featured">
+            <div class="menu-img">
+              <div class="img-placeholder">
+                <span class="img-icon">🍫</span>
+                <p>Coulant<br /><small>700 × 500 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <div class="menu-tag">Imperdible</div>
+              <h3>Coulant de chocolate 72%</h3>
+              <p>Bizcocho de chocolate amargo con corazón fundido, helado de vainilla de Madagascar.</p>
+              <div class="menu-footer"><span class="price">$145</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-img sm">
+              <div class="img-placeholder">
+                <span class="img-icon">🍋</span>
+                <p>Tarta limón<br /><small>500 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <h3>Tarta de limón</h3>
+              <p>Base de mantequilla, crema de limón, merengue italiano tostado.</p>
+              <div class="menu-footer"><span class="price">$120</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-img sm">
+              <div class="img-placeholder">
+                <span class="img-icon">🍓</span>
+                <p>Fresas<br /><small>500 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <h3>Fresas al balsámico</h3>
+              <p>Fresas de temporada, reducción de balsámico, crema mascarpone.</p>
+              <div class="menu-footer"><span class="price">$110</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-img sm">
+              <div class="img-placeholder">
+                <span class="img-icon">🍦</span>
+                <p>Helados<br /><small>500 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <h3>Sorbetes artesanales</h3>
+              <p>Selección diaria de 3 sabores elaborados en casa con frutas frescas.</p>
+              <div class="menu-footer"><span class="price">$95</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bebidas -->
+      <div class="tab-content" id="tab-bebidas">
+        <div class="menu-grid">
+          <div class="menu-item featured">
+            <div class="menu-img">
+              <div class="img-placeholder">
+                <span class="img-icon">🍷</span>
+                <p>Vino<br /><small>700 × 500 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <div class="menu-tag">Carta de vinos</div>
+              <h3>Selección del sumiller</h3>
+              <p>Más de 120 etiquetas nacionales e internacionales cuidadosamente seleccionadas.</p>
+              <div class="menu-footer"><span class="price">Desde $90</span><button class="btn-sm">Ver carta</button></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-img sm">
+              <div class="img-placeholder">
+                <span class="img-icon">🍹</span>
+                <p>Cócteles<br /><small>500 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <h3>Cócteles de temporada</h3>
+              <p>Creaciones del bar con ingredientes de la carta gastronómica.</p>
+              <div class="menu-footer"><span class="price">$120</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-img sm">
+              <div class="img-placeholder">
+                <span class="img-icon">☕</span>
+                <p>Café<br /><small>500 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <h3>Café de especialidad</h3>
+              <p>Granos de origen único, preparados en métodos alternativos.</p>
+              <div class="menu-footer"><span class="price">$65</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-img sm">
+              <div class="img-placeholder">
+                <span class="img-icon">🧃</span>
+                <p>Jugos<br /><small>500 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="menu-info">
+              <h3>Jugos prensados en frío</h3>
+              <p>Combinaciones de frutas y verduras frescas, sin azúcar añadida.</p>
+              <div class="menu-footer"><span class="price">$75</span><button class="btn-sm">Añadir</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== VISTA: CHEF ===== -->
+    <section class="view" id="view-chef">
+      <div class="chef-layout">
+        <div class="chef-image-col">
+          <div class="chef-main-img">
+            <div class="img-placeholder chef-ph">
+              <span class="img-icon">👨‍🍳</span>
+              <p>Retrato del Chef<br /><small>700 × 900 px</small></p>
+            </div>
+          </div>
+          <div class="chef-stats">
+            <div class="stat"><span class="stat-num">18+</span><span class="stat-label">Años de experiencia</span></div>
+            <div class="stat"><span class="stat-num">3</span><span class="stat-label">Estrellas obtenidas</span></div>
+            <div class="stat"><span class="stat-num">12</span><span class="stat-label">Países recorridos</span></div>
+          </div>
+        </div>
+        <div class="chef-content-col">
+          <p class="hero-eyebrow">Detrás de la cocina</p>
+          <h2 class="view-title">Chef <em>Marco Aurelio</em></h2>
+          <div class="chef-quote">
+            "La cocina es el único arte donde todos los sentidos trabajan juntos."
+          </div>
+          <p class="chef-bio">Marco Aurelio comenzó su trayectoria a los 16 años en las cocinas de su abuela en Oaxaca. Formado en Le Cordon Bleu París y con prácticas en los mejores restaurantes de Tokio y Copenhague, fusiona técnicas globales con el alma profunda de la cocina mexicana.</p>
+          <p class="chef-bio">Su filosofía es simple: respetar el ingrediente, entender la temporada y cocinar con honestidad. Cada plato en SAVEUR es una conversación entre la tradición y la vanguardia.</p>
+          
+          <div class="chef-gallery">
+            <div class="chef-gal-item">
+              <div class="img-placeholder">
+                <span class="img-icon">🔪</span>
+                <p>En acción<br /><small>400 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="chef-gal-item">
+              <div class="img-placeholder">
+                <span class="img-icon">🌾</span>
+                <p>Mercado<br /><small>400 × 400 px</small></p>
+              </div>
+            </div>
+            <div class="chef-gal-item">
+              <div class="img-placeholder">
+                <span class="img-icon">🏆</span>
+                <p>Premiación<br /><small>400 × 400 px</small></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="awards">
+            <div class="award-item"><span class="award-icon">⭐</span><div><strong>Mejor chef emergente 2019</strong><span>Guía Michelin México</span></div></div>
+            <div class="award-item"><span class="award-icon">🏅</span><div><strong>Top 50 América Latina 2022</strong><span>The World's Best Restaurants</span></div></div>
+            <div class="award-item"><span class="award-icon">📖</span><div><strong>Autor de "Raíces y Técnica"</strong><span>Libro publicado en 2023</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== VISTA: RESERVA ===== -->
+    <section class="view" id="view-reserva">
+      <div class="reserva-layout">
+        <div class="reserva-content">
+          <p class="hero-eyebrow">Haz tu reservación</p>
+          <h2 class="view-title">Reserva <em>tu mesa</em></h2>
+          <p class="reserva-desc">Elige tu fecha, hora y número de comensales. Te confirmaremos en menos de 2 horas.</p>
+
+          <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" placeholder="Ej. Ana García" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Fecha</label>
+              <input type="date" />
+            </div>
+            <div class="form-group">
+              <label>Hora</label>
+              <select>
+                <option>13:00</option>
+                <option>14:00</option>
+                <option>15:00</option>
+                <option>19:00</option>
+                <option>20:00</option>
+                <option>21:00</option>
+                <option>22:00</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Número de personas</label>
+            <div class="counter">
+              <button class="counter-btn" id="minus">−</button>
+              <span id="counter-val">2</span>
+              <button class="counter-btn" id="plus">+</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ocasión especial (opcional)</label>
+            <select>
+              <option value="">Sin ocasión especial</option>
+              <option>Cumpleaños</option>
+              <option>Aniversario</option>
+              <option>Cena de negocios</option>
+              <option>Propuesta de matrimonio</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Notas o alergias</label>
+            <textarea placeholder="Ej. alergia al gluten, silla para bebé..."></textarea>
+          </div>
+          <button class="btn-primary full" id="reservar-btn">Confirmar reservación</button>
+          <div class="reserva-success" id="reserva-success">
+            <span>✓</span> ¡Tu reservación fue recibida! Te contactaremos pronto.
+          </div>
+        </div>
+        <div class="reserva-info">
+          <div class="info-img">
+            <div class="img-placeholder">
+              <span class="img-icon">🕯️</span>
+              <p>Salón principal<br /><small>700 × 500 px</small></p>
+            </div>
+          </div>
+          <div class="info-img">
+            <div class="img-placeholder">
+              <span class="img-icon">🌿</span>
+              <p>Terraza<br /><small>700 × 400 px</small></p>
+            </div>
+          </div>
+          <div class="info-card">
+            <h4>Información</h4>
+            <p>📍 Av. Presidente Masaryk 123, Polanco</p>
+            <p>📞 +52 55 1234 5678</p>
+            <p>✉️ reservas@saveur.mx</p>
+            <p>🕐 Mar – Dom · 13:00 – 23:00</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">SAVEUR</div>
+      <p class="footer-tag">Fine Food Experience · Ciudad de México</p>
+      <div class="footer-links">
+        <a href="#">Instagram</a>
+        <a href="#">TripAdvisor</a>
+        <a href="#">Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
