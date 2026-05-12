@@ -1,585 +1,510 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAVEUR — Fine Food Experience</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Panda Food - Menú Rápido & Combos</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- ===== CURSOR PERSONALIZADO ===== -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursor-follower"></div>
-
-  <!-- ===== NAV ===== -->
-  <nav class="nav" id="nav">
-    <div class="nav-logo">SAVEUR</div>
-    <div class="nav-links">
-      <a href="#" class="nav-link active" data-view="home">Inicio</a>
-      <a href="#" class="nav-link" data-view="menu">Menú</a>
-      <a href="#" class="nav-link" data-view="chef">El Chef</a>
-      <a href="#" class="nav-link" data-view="reserva">Reservar</a>
-    </div>
-    <div class="nav-cta">
-      <span class="nav-dot"></span>
-      <span>Abierto hoy</span>
-    </div>
-  </nav>
-
-  <!-- ===== VISTAS ===== -->
-  <main class="main-wrapper">
-
-    <!-- ===== VISTA: HOME ===== -->
-    <section class="view active" id="view-home">
-
-      <!-- Hero -->
-      <div class="hero">
-        <div class="hero-content">
-          <p class="hero-eyebrow">Experiencia gastronómica</p>
-          <h1 class="hero-title">
-            El arte<br />
-            <em>de comer</em><br />
-            bien.
-          </h1>
-          <p class="hero-desc">Ingredientes seleccionados, técnica impecable y una atmósfera diseñada para el placer.</p>
-          <div class="hero-actions">
-            <button class="btn-primary" data-view="reserva">Reservar mesa</button>
-            <button class="btn-ghost" data-view="menu">Ver menú</button>
-          </div>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo-top-left">
+                <div class="logo-icon">🐼</div>
+                <div class="logo-text">
+                    <h2>PANDA FOOD</h2>
+                    <span>STREET EATS</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <button class="nav-btn active" data-view="menu">MENU</button>
+                <button class="nav-btn" data-view="combos">PAQUETES</button>
+                <button class="nav-btn" data-view="bebidas">BEBIDAS</button>
+                <button class="nav-btn cart-btn" data-view="carrito">
+                    CARRITO <span id="cartCount" class="cart-count">0</span>
+                </button>
+            </div>
+            <div class="contact-info-header">
+                Tel: 248 241 2979
+            </div>
         </div>
-        <div class="hero-image-block">
-          <div class="img-frame main-frame">
-            <div class="img-placeholder">
-              <span class="img-icon">🍽️</span>
-              <p>Plato estrella<br /><small>1200 × 900 px</small></p>
-            </div>
-          </div>
-          <div class="img-frame float-frame-1">
-            <div class="img-placeholder small">
-              <span class="img-icon">🥗</span>
-              <p>Entrante<br /><small>600 × 600 px</small></p>
-            </div>
-          </div>
-          <div class="img-frame float-frame-2">
-            <div class="img-placeholder small">
-              <span class="img-icon">🍷</span>
-              <p>Vinos<br /><small>600 × 600 px</small></p>
-            </div>
-          </div>
-          <div class="hero-badge">
-            <span class="badge-num">★ 4.9</span>
-            <span class="badge-sub">+1,200 reseñas</span>
-          </div>
+    </header>
+
+    <main class="container">
+        <div id="menuView" class="view active-view">
+            <h2 class="section-title">BURGUERS</h2>
+            <div class="products-grid" id="burguersGrid"></div>
+
+            <h2 class="section-title">PAPAS FRITAS</h2>
+            <div class="products-grid" id="papasGrid"></div>
+
+            <h2 class="section-title">BONELESS Y ALITAS</h2>
+            <div class="products-grid" id="bonelessGrid"></div>
+
+            <h2 class="section-title">BURRITOS Y WRAPS</h2>
+            <div class="products-grid" id="burritosGrid"></div>
+
+            <h2 class="section-title">HOT DOGS</h2>
+            <div class="products-grid" id="hotdogsGrid"></div>
         </div>
-      </div>
 
-      <!-- Feature strip -->
-      <div class="strip">
-        <div class="strip-item"><span>Km 0</span><span class="strip-sep">—</span><span>Ingredientes locales</span></div>
-        <div class="strip-item"><span>Chef★</span><span class="strip-sep">—</span><span>Reconocido internacionalmente</span></div>
-        <div class="strip-item"><span>Open</span><span class="strip-sep">—</span><span>Mar – Dom · 13:00 – 23:00</span></div>
-        <div class="strip-item"><span>Privado</span><span class="strip-sep">—</span><span>Salón de eventos disponible</span></div>
-      </div>
-
-      <!-- Categorías -->
-      <div class="section-label">Nuestras especialidades</div>
-      <div class="categories">
-        <div class="cat-card" data-view="menu">
-          <div class="cat-img">
-            <div class="img-placeholder cat-ph">
-              <span class="img-icon">🥩</span>
-              <p>Carnes<br /><small>800 × 600 px</small></p>
-            </div>
-          </div>
-          <div class="cat-info">
-            <h3>Carnes Premium</h3>
-            <p>Cortes de primera selección, madurados y preparados al punto exacto.</p>
-          </div>
-          <div class="cat-arrow">→</div>
+        <div id="combosView" class="view">
+            <h2 class="section-title">COMBOS EXCLUSIVOS</h2>
+            <div class="products-grid" id="combosGrid"></div>
+            <div class="products-grid" id="extraCombosGrid"></div>
         </div>
-        <div class="cat-card" data-view="menu">
-          <div class="cat-img">
-            <div class="img-placeholder cat-ph">
-              <span class="img-icon">🦞</span>
-              <p>Mariscos<br /><small>800 × 600 px</small></p>
-            </div>
-          </div>
-          <div class="cat-info">
-            <h3>Del Mar</h3>
-            <p>Pescados y mariscos frescos traídos cada mañana de la costa.</p>
-          </div>
-          <div class="cat-arrow">→</div>
+
+        <div id="bebidasView" class="view">
+            <h2 class="section-title">BEBIDAS</h2>
+            <div class="products-grid" id="bebidasGrid"></div>
+            <div class="products-grid" id="slushGrid"></div>
         </div>
-        <div class="cat-card" data-view="menu">
-          <div class="cat-img">
-            <div class="img-placeholder cat-ph">
-              <span class="img-icon">🍮</span>
-              <p>Postres<br /><small>800 × 600 px</small></p>
+
+        <!-- VISTA DEL CARRITO -->
+        <div id="carritoView" class="view">
+            <h2 class="section-title">TU CARRITO</h2>
+            <div id="carritoContainer" class="carrito-container">
+                <div class="carrito-vacio">
+                    No hay productos en tu carrito
+                </div>
             </div>
-          </div>
-          <div class="cat-info">
-            <h3>Postres Artesanales</h3>
-            <p>Creaciones dulces que cierran la experiencia con un broche de oro.</p>
-          </div>
-          <div class="cat-arrow">→</div>
+            <div id="carritoResumen" class="carrito-resumen" style="display: none;">
+                <div class="resumen-card">
+                    <h3>Resumen del pedido</h3>
+                    <div class="resumen-linea">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0</span>
+                    </div>
+                    <div class="resumen-linea">
+                        <span>Envio:</span>
+                        <span>Gratis</span>
+                    </div>
+                    <div class="resumen-linea total">
+                        <span>Total:</span>
+                        <span id="total">$0</span>
+                    </div>
+                    <button class="btn-comprar-todo" onclick="comprarTodo()">
+                        COMPRAR TODO POR WHATSAPP
+                    </button>
+                    <button class="btn-vaciar-carrito" onclick="vaciarCarrito()">
+                        Vaciar carrito
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
+    </main>
 
-      <!-- Gallery row -->
-      <div class="section-label">Galería</div>
-      <div class="gallery-strip">
-        <div class="gal-item tall">
-          <div class="img-placeholder">
-            <span class="img-icon">🌿</span>
-            <p>Ambiente<br /><small>600 × 900 px</small></p>
-          </div>
-        </div>
-        <div class="gal-col">
-          <div class="gal-item">
-            <div class="img-placeholder">
-              <span class="img-icon">🍣</span>
-              <p>Nigiris<br /><small>600 × 400 px</small></p>
-            </div>
-          </div>
-          <div class="gal-item">
-            <div class="img-placeholder">
-              <span class="img-icon">🥂</span>
-              <p>Celebración<br /><small>600 × 400 px</small></p>
-            </div>
-          </div>
-        </div>
-        <div class="gal-item tall">
-          <div class="img-placeholder">
-            <span class="img-icon">🧑‍🍳</span>
-            <p>Cocina en vivo<br /><small>600 × 900 px</small></p>
-          </div>
-        </div>
-        <div class="gal-col">
-          <div class="gal-item">
-            <div class="img-placeholder">
-              <span class="img-icon">🍰</span>
-              <p>Pastelería<br /><small>600 × 400 px</small></p>
-            </div>
-          </div>
-          <div class="gal-item">
-            <div class="img-placeholder">
-              <span class="img-icon">🫒</span>
-              <p>Ingredientes<br /><small>600 × 400 px</small></p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <footer>
+        <p>Calle Orquidea Ideas / N, Sanctorum, Del Lazaro Cardenas | Envios a domicilio | Tel: 248 241 2979</p>
+        <p style="margin-top: 0.5rem;">Sabores que tu hambre estaba buscando</p>
+    </footer>
 
-    </section>
+    <script>
+        // ==============================================================
+        // CARRITO DE COMPRAS
+        // ==============================================================
+        let carrito = [];
 
-    <!-- ===== VISTA: MENÚ ===== -->
-    <section class="view" id="view-menu">
-      <div class="view-header">
-        <p class="hero-eyebrow">Temporada actual</p>
-        <h2 class="view-title">Nuestra <em>Carta</em></h2>
-      </div>
+        function cargarCarrito() {
+            const guardado = localStorage.getItem('pandaCarrito');
+            if (guardado) {
+                carrito = JSON.parse(guardado);
+            }
+            actualizarCarritoUI();
+        }
 
-      <div class="menu-tabs">
-        <button class="tab-btn active" data-tab="entrantes">Entrantes</button>
-        <button class="tab-btn" data-tab="principales">Principales</button>
-        <button class="tab-btn" data-tab="postres">Postres</button>
-        <button class="tab-btn" data-tab="bebidas">Bebidas</button>
-      </div>
+        function guardarCarrito() {
+            localStorage.setItem('pandaCarrito', JSON.stringify(carrito));
+        }
 
-      <!-- Entrantes -->
-      <div class="tab-content active" id="tab-entrantes">
-        <div class="menu-grid">
-          <div class="menu-item featured">
-            <div class="menu-img">
-              <div class="img-placeholder">
-                <span class="img-icon">🥗</span>
-                <p>Ensalada<br /><small>700 × 500 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <div class="menu-tag">Chef recomienda</div>
-              <h3>Burrata con tomate heirloom</h3>
-              <p>Burrata cremosa, tomates de herencia, albahaca fresca y aceite de oliva virgen extra.</p>
-              <div class="menu-footer"><span class="price">$185</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-img sm">
-              <div class="img-placeholder">
-                <span class="img-icon">🥟</span>
-                <p>Gyoza<br /><small>500 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <h3>Gyoza de cangrejo</h3>
-              <p>Masa artesanal, relleno de cangrejo azul, salsa ponzu.</p>
-              <div class="menu-footer"><span class="price">$165</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-img sm">
-              <div class="img-placeholder">
-                <span class="img-icon">🦑</span>
-                <p>Calamar<br /><small>500 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <h3>Calamar a la plancha</h3>
-              <p>Calamar fresco, mantequilla de hierbas, limón confitado.</p>
-              <div class="menu-footer"><span class="price">$145</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-img sm">
-              <div class="img-placeholder">
-                <span class="img-icon">🍄</span>
-                <p>Hongos<br /><small>500 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <h3>Tartar de hongos</h3>
-              <p>Mezcla de setas silvestres, yema curada, pan brioche tostado.</p>
-              <div class="menu-footer"><span class="price">$155</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-        </div>
-      </div>
+        function agregarAlCarrito(producto) {
+            const existingIndex = carrito.findIndex(item => 
+                item.id === producto.id && item.tipo === producto.tipo
+            );
+            
+            if (existingIndex !== -1) {
+                carrito[existingIndex].cantidad += 1;
+            } else {
+                carrito.push({
+                    ...producto,
+                    cantidad: 1
+                });
+            }
+            guardarCarrito();
+            actualizarCarritoUI();
+            mostrarNotificacion(producto.nombre + " agregado al carrito");
+        }
 
-      <!-- Principales -->
-      <div class="tab-content" id="tab-principales">
-        <div class="menu-grid">
-          <div class="menu-item featured">
-            <div class="menu-img">
-              <div class="img-placeholder">
-                <span class="img-icon">🥩</span>
-                <p>Filete<br /><small>700 × 500 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <div class="menu-tag">Más pedido</div>
-              <h3>Filete Wellington</h3>
-              <p>Tenderloin envuelto en duxelles de champiñón y hojaldre dorado, acompañado de puré de trufa.</p>
-              <div class="menu-footer"><span class="price">$480</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-img sm">
-              <div class="img-placeholder">
-                <span class="img-icon">🐟</span>
-                <p>Salmón<br /><small>500 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <h3>Salmón miso</h3>
-              <p>Salmón glaseado con miso blanco, bok choy salteado, arroz de jazmín.</p>
-              <div class="menu-footer"><span class="price">$320</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-img sm">
-              <div class="img-placeholder">
-                <span class="img-icon">🦞</span>
-                <p>Langosta<br /><small>500 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <h3>Langosta thermidor</h3>
-              <p>Media langosta, salsa thermidor clásica, papas gratinadas.</p>
-              <div class="menu-footer"><span class="price">$550</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-img sm">
-              <div class="img-placeholder">
-                <span class="img-icon">🍝</span>
-                <p>Pasta<br /><small>500 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <h3>Tagliatelle al tartufo</h3>
-              <p>Pasta fresca al huevo, trufa negra rallada, parmigiano reggiano 36 meses.</p>
-              <div class="menu-footer"><span class="price">$285</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-        </div>
-      </div>
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            guardarCarrito();
+            actualizarCarritoUI();
+        }
 
-      <!-- Postres -->
-      <div class="tab-content" id="tab-postres">
-        <div class="menu-grid">
-          <div class="menu-item featured">
-            <div class="menu-img">
-              <div class="img-placeholder">
-                <span class="img-icon">🍫</span>
-                <p>Coulant<br /><small>700 × 500 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <div class="menu-tag">Imperdible</div>
-              <h3>Coulant de chocolate 72%</h3>
-              <p>Bizcocho de chocolate amargo con corazón fundido, helado de vainilla de Madagascar.</p>
-              <div class="menu-footer"><span class="price">$145</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-img sm">
-              <div class="img-placeholder">
-                <span class="img-icon">🍋</span>
-                <p>Tarta limón<br /><small>500 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <h3>Tarta de limón</h3>
-              <p>Base de mantequilla, crema de limón, merengue italiano tostado.</p>
-              <div class="menu-footer"><span class="price">$120</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-img sm">
-              <div class="img-placeholder">
-                <span class="img-icon">🍓</span>
-                <p>Fresas<br /><small>500 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <h3>Fresas al balsámico</h3>
-              <p>Fresas de temporada, reducción de balsámico, crema mascarpone.</p>
-              <div class="menu-footer"><span class="price">$110</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-img sm">
-              <div class="img-placeholder">
-                <span class="img-icon">🍦</span>
-                <p>Helados<br /><small>500 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <h3>Sorbetes artesanales</h3>
-              <p>Selección diaria de 3 sabores elaborados en casa con frutas frescas.</p>
-              <div class="menu-footer"><span class="price">$95</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-        </div>
-      </div>
+        function actualizarCantidad(index, nuevaCantidad) {
+            if (nuevaCantidad <= 0) {
+                eliminarDelCarrito(index);
+            } else {
+                carrito[index].cantidad = nuevaCantidad;
+                guardarCarrito();
+                actualizarCarritoUI();
+            }
+        }
 
-      <!-- Bebidas -->
-      <div class="tab-content" id="tab-bebidas">
-        <div class="menu-grid">
-          <div class="menu-item featured">
-            <div class="menu-img">
-              <div class="img-placeholder">
-                <span class="img-icon">🍷</span>
-                <p>Vino<br /><small>700 × 500 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <div class="menu-tag">Carta de vinos</div>
-              <h3>Selección del sumiller</h3>
-              <p>Más de 120 etiquetas nacionales e internacionales cuidadosamente seleccionadas.</p>
-              <div class="menu-footer"><span class="price">Desde $90</span><button class="btn-sm">Ver carta</button></div>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-img sm">
-              <div class="img-placeholder">
-                <span class="img-icon">🍹</span>
-                <p>Cócteles<br /><small>500 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <h3>Cócteles de temporada</h3>
-              <p>Creaciones del bar con ingredientes de la carta gastronómica.</p>
-              <div class="menu-footer"><span class="price">$120</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-img sm">
-              <div class="img-placeholder">
-                <span class="img-icon">☕</span>
-                <p>Café<br /><small>500 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <h3>Café de especialidad</h3>
-              <p>Granos de origen único, preparados en métodos alternativos.</p>
-              <div class="menu-footer"><span class="price">$65</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-img sm">
-              <div class="img-placeholder">
-                <span class="img-icon">🧃</span>
-                <p>Jugos<br /><small>500 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="menu-info">
-              <h3>Jugos prensados en frío</h3>
-              <p>Combinaciones de frutas y verduras frescas, sin azúcar añadida.</p>
-              <div class="menu-footer"><span class="price">$75</span><button class="btn-sm">Añadir</button></div>
-            </div>
-          </div>
-        </div>
-      </div>
+        function vaciarCarrito() {
+            if (confirm('Esta seguro de vaciar todo el carrito?')) {
+                carrito = [];
+                guardarCarrito();
+                actualizarCarritoUI();
+                mostrarNotificacion('Carrito vaciado');
+            }
+        }
 
-    </section>
+        function calcularTotales() {
+            let subtotal = 0;
+            carrito.forEach(item => {
+                let precio = typeof item.precio === 'number' ? item.precio : parseFloat(item.precio) || 0;
+                subtotal += precio * item.cantidad;
+            });
+            return { subtotal, total: subtotal };
+        }
 
-    <!-- ===== VISTA: CHEF ===== -->
-    <section class="view" id="view-chef">
-      <div class="chef-layout">
-        <div class="chef-image-col">
-          <div class="chef-main-img">
-            <div class="img-placeholder chef-ph">
-              <span class="img-icon">👨‍🍳</span>
-              <p>Retrato del Chef<br /><small>700 × 900 px</small></p>
-            </div>
-          </div>
-          <div class="chef-stats">
-            <div class="stat"><span class="stat-num">18+</span><span class="stat-label">Años de experiencia</span></div>
-            <div class="stat"><span class="stat-num">3</span><span class="stat-label">Estrellas obtenidas</span></div>
-            <div class="stat"><span class="stat-num">12</span><span class="stat-label">Países recorridos</span></div>
-          </div>
-        </div>
-        <div class="chef-content-col">
-          <p class="hero-eyebrow">Detrás de la cocina</p>
-          <h2 class="view-title">Chef <em>Marco Aurelio</em></h2>
-          <div class="chef-quote">
-            "La cocina es el único arte donde todos los sentidos trabajan juntos."
-          </div>
-          <p class="chef-bio">Marco Aurelio comenzó su trayectoria a los 16 años en las cocinas de su abuela en Oaxaca. Formado en Le Cordon Bleu París y con prácticas en los mejores restaurantes de Tokio y Copenhague, fusiona técnicas globales con el alma profunda de la cocina mexicana.</p>
-          <p class="chef-bio">Su filosofía es simple: respetar el ingrediente, entender la temporada y cocinar con honestidad. Cada plato en SAVEUR es una conversación entre la tradición y la vanguardia.</p>
-          
-          <div class="chef-gallery">
-            <div class="chef-gal-item">
-              <div class="img-placeholder">
-                <span class="img-icon">🔪</span>
-                <p>En acción<br /><small>400 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="chef-gal-item">
-              <div class="img-placeholder">
-                <span class="img-icon">🌾</span>
-                <p>Mercado<br /><small>400 × 400 px</small></p>
-              </div>
-            </div>
-            <div class="chef-gal-item">
-              <div class="img-placeholder">
-                <span class="img-icon">🏆</span>
-                <p>Premiación<br /><small>400 × 400 px</small></p>
-              </div>
-            </div>
-          </div>
+        function actualizarCarritoUI() {
+            const cartCount = document.getElementById('cartCount');
+            const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+            cartCount.textContent = totalItems;
+            
+            const carritoContainer = document.getElementById('carritoContainer');
+            const carritoResumen = document.getElementById('carritoResumen');
+            
+            if (carrito.length === 0) {
+                carritoContainer.innerHTML = '<div class="carrito-vacio">No hay productos en tu carrito</div>';
+                carritoResumen.style.display = 'none';
+                return;
+            }
+            
+            carritoResumen.style.display = 'block';
+            
+            carritoContainer.innerHTML = '';
+            carrito.forEach((item, idx) => {
+                const precioMostrar = typeof item.precio === 'number' ? '$' + item.precio : item.precio;
+                const precioNum = typeof item.precio === 'number' ? item.precio : 0;
+                const subtotalItem = precioNum * item.cantidad;
+                
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'carrito-item';
+                itemDiv.innerHTML = `
+                    <div class="carrito-item-img">
+                        ${item.img ? '<img src="' + item.img + '" alt="' + item.nombre + '" onerror="this.style.display=\'none\'">' : '<span>🍽️</span>'}
+                    </div>
+                    <div class="carrito-item-info">
+                        <div class="carrito-item-nombre">${item.nombre}</div>
+                        <div class="carrito-item-tipo">${item.tipo}</div>
+                        <div class="carrito-item-precio">${precioMostrar} c/u</div>
+                    </div>
+                    <div class="carrito-item-cantidad">
+                        <button onclick="actualizarCantidad(${idx}, ${item.cantidad - 1})">-</button>
+                        <span>${item.cantidad}</span>
+                        <button onclick="actualizarCantidad(${idx}, ${item.cantidad + 1})">+</button>
+                    </div>
+                    <div class="carrito-item-subtotal">$${subtotalItem}</div>
+                    <button class="carrito-item-eliminar" onclick="eliminarDelCarrito(${idx})">X</button>
+                `;
+                carritoContainer.appendChild(itemDiv);
+            });
+            
+            const { subtotal, total } = calcularTotales();
+            document.getElementById('subtotal').textContent = '$' + subtotal;
+            document.getElementById('total').textContent = '$' + total;
+        }
 
-          <div class="awards">
-            <div class="award-item"><span class="award-icon">⭐</span><div><strong>Mejor chef emergente 2019</strong><span>Guía Michelin México</span></div></div>
-            <div class="award-item"><span class="award-icon">🏅</span><div><strong>Top 50 América Latina 2022</strong><span>The World's Best Restaurants</span></div></div>
-            <div class="award-item"><span class="award-icon">📖</span><div><strong>Autor de "Raíces y Técnica"</strong><span>Libro publicado en 2023</span></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
+        function mostrarNotificacion(mensaje) {
+            const notif = document.createElement('div');
+            notif.className = 'notificacion';
+            notif.innerHTML = mensaje;
+            document.body.appendChild(notif);
+            setTimeout(() => {
+                notif.classList.add('mostrar');
+                setTimeout(() => {
+                    notif.remove();
+                }, 2500);
+            }, 10);
+        }
 
-    <!-- ===== VISTA: RESERVA ===== -->
-    <section class="view" id="view-reserva">
-      <div class="reserva-layout">
-        <div class="reserva-content">
-          <p class="hero-eyebrow">Haz tu reservación</p>
-          <h2 class="view-title">Reserva <em>tu mesa</em></h2>
-          <p class="reserva-desc">Elige tu fecha, hora y número de comensales. Te confirmaremos en menos de 2 horas.</p>
+        function comprarTodo() {
+            if (carrito.length === 0) {
+                mostrarNotificacion('El carrito esta vacio');
+                return;
+            }
+            
+            const { total } = calcularTotales();
+            let mensaje = "NUEVO PEDIDO - PANDA FOOD%0A";
+            mensaje += "%0A--- DETALLE DEL PEDIDO ---%0A";
+            
+            carrito.forEach((item, idx) => {
+                const precioNum = typeof item.precio === 'number' ? item.precio : 0;
+                const subtotal = precioNum * item.cantidad;
+                mensaje += (idx+1) + ". " + item.nombre + " x" + item.cantidad + " = $" + subtotal + "%0A";
+            });
+            
+            mensaje += "----------------------------%0A";
+            mensaje += "TOTAL: $" + total + "%0A";
+            mensaje += "%0AGracias por tu pedido!";
+            
+            const telefono = "2482412979";
+            const url = "https://wa.me/" + telefono + "?text=" + mensaje;
+            window.open(url, '_blank');
+        }
 
-          <div class="form-group">
-            <label>Nombre completo</label>
-            <input type="text" placeholder="Ej. Ana García" />
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Fecha</label>
-              <input type="date" />
-            </div>
-            <div class="form-group">
-              <label>Hora</label>
-              <select>
-                <option>13:00</option>
-                <option>14:00</option>
-                <option>15:00</option>
-                <option>19:00</option>
-                <option>20:00</option>
-                <option>21:00</option>
-                <option>22:00</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Número de personas</label>
-            <div class="counter">
-              <button class="counter-btn" id="minus">−</button>
-              <span id="counter-val">2</span>
-              <button class="counter-btn" id="plus">+</button>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Ocasión especial (opcional)</label>
-            <select>
-              <option value="">Sin ocasión especial</option>
-              <option>Cumpleaños</option>
-              <option>Aniversario</option>
-              <option>Cena de negocios</option>
-              <option>Propuesta de matrimonio</option>
-              <option>Otro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Notas o alergias</label>
-            <textarea placeholder="Ej. alergia al gluten, silla para bebé..."></textarea>
-          </div>
-          <button class="btn-primary full" id="reservar-btn">Confirmar reservación</button>
-          <div class="reserva-success" id="reserva-success">
-            <span>✓</span> ¡Tu reservación fue recibida! Te contactaremos pronto.
-          </div>
-        </div>
-        <div class="reserva-info">
-          <div class="info-img">
-            <div class="img-placeholder">
-              <span class="img-icon">🕯️</span>
-              <p>Salón principal<br /><small>700 × 500 px</small></p>
-            </div>
-          </div>
-          <div class="info-img">
-            <div class="img-placeholder">
-              <span class="img-icon">🌿</span>
-              <p>Terraza<br /><small>700 × 400 px</small></p>
-            </div>
-          </div>
-          <div class="info-card">
-            <h4>Información</h4>
-            <p>📍 Av. Presidente Masaryk 123, Polanco</p>
-            <p>📞 +52 55 1234 5678</p>
-            <p>✉️ reservas@saveur.mx</p>
-            <p>🕐 Mar – Dom · 13:00 – 23:00</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        // ==============================================================
+        // DATOS DEL MENU
+        // ==============================================================
+        
+        function generarId() {
+            return Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        }
 
-  </main>
+        const burguers = [
+            { id: generarId(), nombre: "Hamburguesa Normal", precio: 85, desc: "Carne de res, queso americano, tocino, queso mozzarella", img: "img/hamburguesa-normal.jpg", defaultIcon: "🍔", tipo: "Hamburguesa" },
+            { id: generarId(), nombre: "Hamburguesa Doble", precio: 130, desc: "Doble carne de res, doble queso americano, extra de tocino y queso mozzarella", img: "img/hamburguesa-doble.jpg", defaultIcon: "🍔", tipo: "Hamburguesa" },
+            { id: generarId(), nombre: "Hamburguesa Hawaiana", precio: 110, desc: "Carne de res, queso americano, jamon, queso mozzarella, tocino y pina", img: "img/hamburguesa-hawaiana.jpg", defaultIcon: "🍔", tipo: "Hamburguesa" }
+        ];
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-logo">SAVEUR</div>
-      <p class="footer-tag">Fine Food Experience · Ciudad de México</p>
-      <div class="footer-links">
-        <a href="#">Instagram</a>
-        <a href="#">TripAdvisor</a>
-        <a href="#">Privacidad</a>
-      </div>
-    </div>
-  </footer>
+        const papasExtras = [
+            { id: generarId(), nombre: "Panda Fries Classic", precio: "G: $50 / CH: $35", desc: "Papas fritas mas complemento", img: "img/panda-fries.jpg", defaultIcon: "🍟", tipo: "Papas", precioNumerico: 0 },
+            { id: generarId(), nombre: "Panda Potato", precio: 70, desc: "Papas de cajo mas salsa BBQ mas queso fundido mas aderezo", img: "img/panda-potato.jpg", defaultIcon: "🥔", tipo: "Papas" },
+            { id: generarId(), nombre: "Agrega Tocino (Extra)", precio: 20, desc: "Tocino crujiente extra", img: "img/tocino-extra.jpg", defaultIcon: "🥓", tipo: "Extra" },
+            { id: generarId(), nombre: "Agrega Proteina", precio: 30, desc: "Proteina extra", img: "img/proteina-extra.jpg", defaultIcon: "🍖", tipo: "Extra" }
+        ];
 
-  <script src="app.js"></script>
+        const bonelessItems = [
+            { id: generarId(), nombre: "Boneless Buffalo", precio: 90, desc: "Boneless banados en salsa Mango Habanero o BBQ mas complementos", img: "img/boneless.jpg", defaultIcon: "🍗", tipo: "Boneless" },
+            { id: generarId(), nombre: "6 Piezas de Alitas", precio: 75, desc: "6 alitas jugosas mas complementos", img: "img/alitas.jpg", defaultIcon: "🍗", tipo: "Alitas" }
+        ];
+
+        const burritosWraps = [
+            { id: generarId(), nombre: "Burrito Tex-Mex", precio: 160, desc: "Tortilla de harina extragrande, frijoles, 2 proteinas clasicas, quesillo, ensalada, aderezo, cebolla caramelizada y guacamole", img: "img/burrito-texmex.jpg", defaultIcon: "🌯", tipo: "Burrito" },
+            { id: generarId(), nombre: "Wrap Panda Chicken", precio: 130, desc: "Tortilla de harina extragrande, frijoles, fajitas de pollo, ensalada, quesillo, aderezo chipotle", img: "img/wrap-chicken.jpg", defaultIcon: "🌯", tipo: "Wrap" },
+            { id: generarId(), nombre: "Bistec de cerdo + Longaniza", precio: 160, desc: "Proteina para tu burrito", img: "img/bistec-longaniza.jpg", defaultIcon: "🥩", tipo: "Proteina" },
+            { id: generarId(), nombre: "Arrachera de Res Marinada", precio: 175, desc: "Arrachera jugosa marinada", img: "img/arrachera.jpg", defaultIcon: "🥩", tipo: "Proteina" }
+        ];
+
+        const hotDogs = [
+            { id: generarId(), nombre: "Panda Crush", precio: 80, desc: "Salchicha jumbo, cebolla caramelizada, mozzarella fundida, tocino, boneless bites, aderezo pickle chipotle", img: "img/panda-crush.jpg", defaultIcon: "🌭", tipo: "Hot Dog" },
+            { id: generarId(), nombre: "Aloha Panda", precio: 75, desc: "Salchicha jumbo, mozzarella fundida, jamon, tocino, aderezo tropical glaze y pina asada", img: "img/aloha-panda.jpg", defaultIcon: "🌭", tipo: "Hot Dog" },
+            { id: generarId(), nombre: "Panda Fresch", precio: 75, desc: "Salchicha jumbo, mozzarella fundida, ensalada, guacamole, crunch de Sabritas y aderezo", img: "img/panda-fresch.jpg", defaultIcon: "🌭", tipo: "Hot Dog" }
+        ];
+
+        const bebidas = [
+            { id: generarId(), nombre: "Agua de 1L (Horchata / Jamaica)", precio: 40, desc: "Agua fresca 1 litro", img: "img/agua-1l.jpg", defaultIcon: "🥤", tipo: "Bebida" },
+            { id: generarId(), nombre: "Agua de 1/2L", precio: 30, desc: "Agua fresca 500 ml", img: "img/agua-half.jpg", defaultIcon: "🥤", tipo: "Bebida" },
+            { id: generarId(), nombre: "Refresco 600ml", precio: 35, desc: "Coca Cola, Fanta, Jarrito o Zubba", img: "img/refresco.jpg", defaultIcon: "🥤", tipo: "Bebida" },
+            { id: generarId(), nombre: "Jugo de Naranja", precio: 35, desc: "Jugo natural", img: "img/jugo-naranja.jpg", defaultIcon: "🧃", tipo: "Bebida" }
+        ];
+
+        const slushies = [
+            { id: generarId(), nombre: "Slushie 500ml (Mango)", precio: 50, desc: "Slush de mango", img: "img/slush-mango.jpg", defaultIcon: "🥤", tipo: "Slushie" },
+            { id: generarId(), nombre: "Slushie 500ml (Fresa)", precio: 50, desc: "Slush de fresa", img: "img/slush-fresa.jpg", defaultIcon: "🥤", tipo: "Slushie" },
+            { id: generarId(), nombre: "Slushie 500ml (Manzana Verde)", precio: 50, desc: "Slush de manzana verde", img: "img/slush-manzana.jpg", defaultIcon: "🥤", tipo: "Slushie" }
+        ];
+
+        const combosOficiales = [
+            { id: generarId(), nombre: "PANDA BOX (El Individual)", precio: 145, desc: "1 Hamburguesa Normal (o Hot Dog) + Papas Chicas + 1 Agua de 1L", img: "img/combo-box.jpg", defaultIcon: "📦", tipo: "Combo" },
+            { id: generarId(), nombre: "DUO PANDA (El de Pareja)", precio: 340, desc: "2 Hamburguesas Normales (o Hot Dogs) + Papas Chicas + 1 Agua de 1L", img: "img/combo-duo.jpg", defaultIcon: "👥", tipo: "Combo" },
+            { id: generarId(), nombre: "PANDA MIX (El Todo en Uno)", precio: 180, desc: "1 Hot Dog + 4 Alitas + Papas Chicas + 1 Refresco 600ml", img: "img/combo-mix.jpg", defaultIcon: "🎁", tipo: "Combo" }
+        ];
+
+        const combosExtras = [
+            { id: generarId(), nombre: "Combo Fries + Hamburguesa", precio: 150, desc: "Hamburguesa Normal + Papas Classic Medianas + salsa", img: "img/combo-fries.jpg", defaultIcon: "🍟", tipo: "Combo" },
+            { id: generarId(), nombre: "Duo Alitas + Boneless", precio: 155, desc: "6 Alitas + Boneless Buffalo + complemento", img: "img/combo-alitas.jpg", defaultIcon: "🍗", tipo: "Combo" },
+            { id: generarId(), nombre: "Wrap + Agua 1/2L", precio: 150, desc: "Wrap Panda Chicken + Agua de horchata o jamaica 500ml", img: "img/combo-wrap.jpg", defaultIcon: "🌯", tipo: "Combo" }
+        ];
+
+        function crearCard(item, tipoProducto) {
+            const precioMostrar = typeof item.precio === 'number' ? '$' + item.precio : item.precio;
+            const imgSrc = item.img;
+            
+            return `
+                <div class="product-card">
+                    <div class="img-container">
+                        <img src="${imgSrc}" alt="${item.nombre}" class="product-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="img-placeholder-emoji" style="display: none; font-size: 4rem;">${item.defaultIcon}</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">
+                            <strong>${item.nombre}</strong>
+                            <div class="price">${precioMostrar}</div>
+                        </div>
+                        <div class="description">${item.desc}</div>
+                        <button class="btn-agregar-carrito" onclick="agregarAlCarritoDesdeProducto('${item.id}', '${tipoProducto}')">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function agregarAlCarritoDesdeProducto(id, tipoProducto) {
+            let productoEncontrado = null;
+            
+            const buscarEnArray = (arr) => {
+                const found = arr.find(p => p.id === id);
+                if (found) productoEncontrado = found;
+            };
+            
+            buscarEnArray(burguers);
+            buscarEnArray(papasExtras);
+            buscarEnArray(bonelessItems);
+            buscarEnArray(burritosWraps);
+            buscarEnArray(hotDogs);
+            buscarEnArray(bebidas);
+            buscarEnArray(slushies);
+            buscarEnArray(combosOficiales);
+            buscarEnArray(combosExtras);
+            
+            if (productoEncontrado) {
+                const itemParaCarrito = {
+                    id: productoEncontrado.id,
+                    nombre: productoEncontrado.nombre,
+                    precio: typeof productoEncontrado.precio === 'number' ? productoEncontrado.precio : 0,
+                    img: productoEncontrado.img,
+                    tipo: productoEncontrado.tipo || tipoProducto
+                };
+                agregarAlCarrito(itemParaCarrito);
+            }
+        }
+
+        function renderizarGrid(containerId, items, tipo) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            container.innerHTML = '';
+            items.forEach(item => {
+                container.innerHTML += crearCard(item, tipo);
+            });
+        }
+
+        function renderPapasGrid() {
+            const container = document.getElementById('papasGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            papasExtras.forEach(item => {
+                container.innerHTML += crearCard(item, 'Papas');
+            });
+        }
+
+        function renderBonelessGrid() {
+            const container = document.getElementById('bonelessGrid');
+            if(!container) return;
+            container.innerHTML = '';
+            bonelessItems.forEach(item => {
+                container.innerHTML += crearCard(item, 'Boneless');
+            });
+        }
+
+        function renderBurritosGrid() {
+            const container = document.getElementById('burritosGrid');
+            if(!container) return;
+            container.innerHTML = '';
+            burritosWraps.forEach(item => {
+                container.innerHTML += crearCard(item, 'Burrito');
+            });
+        }
+
+        function renderHotdogsGrid() {
+            const container = document.getElementById('hotdogsGrid');
+            if(!container) return;
+            container.innerHTML = '';
+            hotDogs.forEach(item => {
+                container.innerHTML += crearCard(item, 'HotDog');
+            });
+        }
+
+        function renderBebidasTotal() {
+            const container = document.getElementById('bebidasGrid');
+            const slushCont = document.getElementById('slushGrid');
+            if(container){
+                container.innerHTML = '';
+                bebidas.forEach(drink => {
+                    container.innerHTML += crearCard(drink, 'Bebida');
+                });
+            }
+            if(slushCont){
+                slushCont.innerHTML = '';
+                slushies.forEach(slush => {
+                    slushCont.innerHTML += crearCard(slush, 'Slushie');
+                });
+            }
+        }
+
+        function renderCombosView() {
+            const combosContainer = document.getElementById('combosGrid');
+            if(!combosContainer) return;
+            combosContainer.innerHTML = '';
+            combosOficiales.forEach(combo => {
+                combosContainer.innerHTML += crearCard(combo, 'Combo');
+            });
+            
+            const extraContainer = document.getElementById('extraCombosGrid');
+            if(extraContainer){
+                extraContainer.innerHTML = '';
+                combosExtras.forEach(ce => {
+                    extraContainer.innerHTML += crearCard(ce, 'Combo');
+                });
+            }
+        }
+
+        function initAllViews() {
+            renderizarGrid('burguersGrid', burguers, 'Hamburguesa');
+            renderPapasGrid();
+            renderBonelessGrid();
+            renderBurritosGrid();
+            renderHotdogsGrid();
+            renderBebidasTotal();
+            renderCombosView();
+        }
+
+        // Navegacion
+        const menuViewDiv = document.getElementById('menuView');
+        const combosViewDiv = document.getElementById('combosView');
+        const bebidasViewDiv = document.getElementById('bebidasView');
+        const carritoViewDiv = document.getElementById('carritoView');
+        const navBtns = document.querySelectorAll('.nav-btn');
+
+        function setActiveView(viewId) {
+            menuViewDiv.classList.remove('active-view');
+            combosViewDiv.classList.remove('active-view');
+            bebidasViewDiv.classList.remove('active-view');
+            carritoViewDiv.classList.remove('active-view');
+            
+            if(viewId === 'menu') menuViewDiv.classList.add('active-view');
+            if(viewId === 'combos') combosViewDiv.classList.add('active-view');
+            if(viewId === 'bebidas') bebidasViewDiv.classList.add('active-view');
+            if(viewId === 'carrito') carritoViewDiv.classList.add('active-view');
+            
+            navBtns.forEach(btn => {
+                btn.classList.remove('active');
+                if((viewId === 'menu' && btn.dataset.view === 'menu') ||
+                   (viewId === 'combos' && btn.dataset.view === 'combos') ||
+                   (viewId === 'bebidas' && btn.dataset.view === 'bebidas') ||
+                   (viewId === 'carrito' && btn.dataset.view === 'carrito')) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const view = btn.dataset.view;
+                if(view === 'menu') setActiveView('menu');
+                else if(view === 'combos') setActiveView('combos');
+                else if(view === 'bebidas') setActiveView('bebidas');
+                else if(view === 'carrito') setActiveView('carrito');
+            });
+        });
+
+        cargarCarrito();
+        initAllViews();
+        setActiveView('menu');
+    </script>
 </body>
 </html>
